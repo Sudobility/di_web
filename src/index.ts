@@ -24,6 +24,19 @@ export {
   type BannerStateListener,
 } from './info/index.js';
 
+// Export Alert service and React components
+export {
+  WebAlertService,
+  createWebAlertService,
+  initializeAlertService,
+  getAlertService,
+  resetAlertService,
+  AlertModal,
+  useAlertModal,
+  type AlertState,
+  type AlertStateListener,
+} from './alert/index.js';
+
 // Export Initialize module
 export {
   // Analytics service (re-exported from @sudobility/di/web)
