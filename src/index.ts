@@ -73,8 +73,6 @@ export {
 export type {
   AnalyticsEvent as FirebaseAnalyticsEvent,
   AnalyticsService,
-  RemoteConfigValue,
-  RemoteConfigService,
   FCMNotificationPayload,
   FCMDataPayload,
   FCMMessage,

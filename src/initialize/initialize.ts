@@ -79,7 +79,7 @@ export interface WebAppInitOptions {
   /** Firebase configuration */
   firebaseConfig: FirebaseConfig;
 
-  /** Options controlling which Firebase services to enable (analytics, remote config, messaging) */
+  /** Options controlling which Firebase services to enable (analytics, messaging) */
   firebaseInitOptions?: import('@sudobility/di').FirebaseInitOptions;
 
   /** RevenueCat configuration - if provided, enables RevenueCat */
@@ -100,7 +100,7 @@ export interface WebAppInitOptions {
  *
  * This function sets up services in the correct order:
  * 1. Storage service
- * 2. Firebase DI service (analytics, remote config, etc.)
+ * 2. Firebase DI service (analytics, messaging, etc.)
  * 3. Firebase Analytics singleton
  * 4. Network service
  * 5. Info service
@@ -130,7 +130,7 @@ export async function initializeWebApp(
   // 1. Initialize storage service
   initializeStorageService();
 
-  // 2. Initialize Firebase DI service (analytics, remote config, etc.)
+  // 2. Initialize Firebase DI service (analytics, messaging, etc.)
   initializeFirebaseService(firebaseConfig, firebaseInitOptions);
 
   // 3. Initialize Firebase Analytics singleton
