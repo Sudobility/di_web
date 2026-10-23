@@ -1,6 +1,6 @@
 {
   "name": "@sudobility/di_web",
-  "version": "0.1.253",
+  "version": "0.1.254",
   "description": "Web implementations of dependency injection services for Sudobility",
   "type": "module",
   "main": "dist/index.js",
@@ -42,15 +42,15 @@
   "author": "Sudobility Inc",
   "license": "BUSL-1.1",
   "peerDependencies": {
-    "@sudobility/components": "^5.3.33",
-    "@sudobility/di": "^1.5.70",
-    "@sudobility/types": "^1.9.71",
+    "@sudobility/components": "^5.3.36",
+    "@sudobility/di": "^1.5.73",
+    "@sudobility/types": "^1.9.72",
     "react": "^18.0.0 || ^19.0.0",
     "vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/johnqh/di_web.git"
+    "url": "https://github.com/Sudobility/di_web.git"
   },
   "peerDependenciesMeta": {
     "@sudobility/subscription_lib": {
@@ -62,10 +62,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
-    "@sudobility/components": "^5.3.33",
-    "@sudobility/di": "^1.5.70",
-    "@sudobility/subscription_lib": "^0.0.51",
-    "@sudobility/types": "^1.9.71",
+    "@sudobility/components": "^5.3.36",
+    "@sudobility/di": "^1.5.73",
+    "@sudobility/subscription_lib": "^0.0.52",
+    "@sudobility/types": "^1.9.72",
     "@types/node": "^24.10.1",
     "@types/react": "^19.1.8",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
