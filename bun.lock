@@ -6,9 +6,9 @@
       "name": "@sudobility/di_web",
       "devDependencies": {
         "@eslint/js": "~9.39.5",
-        "@sudobility/components": "^5.3.42",
-        "@sudobility/di": "^1.5.78",
-        "@sudobility/subscription_lib": "^0.0.56",
+        "@sudobility/components": "^5.3.43",
+        "@sudobility/di": "^1.5.79",
+        "@sudobility/subscription_lib": "^0.0.57",
         "@sudobility/types": "^1.9.76",
         "@types/node": "~24.19.2",
         "@types/react": "~19.3.0",
@@ -26,8 +26,8 @@
         "vitest": "~3.2.7",
       },
       "peerDependencies": {
-        "@sudobility/components": "^5.3.42",
-        "@sudobility/di": "^1.5.78",
+        "@sudobility/components": "^5.3.43",
+        "@sudobility/di": "^1.5.79",
         "@sudobility/subscription_lib": "*",
         "@sudobility/types": "^1.9.76",
         "react": "^18.0.0 || ^19.0.0",
@@ -482,13 +482,13 @@
 
     "@sinclair/typebox": ["@sinclair/typebox@0.27.12", "", {}, "sha512-hhyNJ+nbR6ZR7pToHvllEFun9TL0sbL+tk/ON75lo+Xas054uez98qRbsuNt7MBCyZKK4+8Yli/OAGZhmfBZ/g=="],
 
-    "@sudobility/components": ["@sudobility/components@5.3.42", "https://npm.pkg.github.com/download/@sudobility/components/5.3.42/08798387af8e84ecdb21525ac10f32eec2bea17d", { "optionalDependencies": { "@rollup/rollup-linux-x64-gnu": "4.52.5", "@rollup/rollup-linux-x64-musl": "4.52.5" }, "peerDependencies": { "@heroicons/react": ">=2.0.0", "@radix-ui/react-alert-dialog": ">=1.0.0", "@radix-ui/react-dialog": ">=1.0.0", "@radix-ui/react-label": ">=2.0.0", "@radix-ui/react-select": ">=2.0.0", "@radix-ui/react-slot": ">=1.0.0", "@radix-ui/react-switch": ">=1.0.0", "@radix-ui/react-tabs": ">=1.0.0", "@sudobility/design": "^1.1.66", "@sudobility/types": "^1.9.76", "class-variance-authority": ">=0.7.0", "clsx": ">=2.0.0", "i18next": ">=23.0.0", "react": ">=18.0.0", "react-dom": ">=18.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0", "tailwind-merge": ">=2.0.0", "web-vitals": ">=3.0.0" } }, "sha512-89vt++MdB57nuDUrB1TJ+oMVScXUHgOM8D2o4+Bzamv2/283ejdD7zStxwjK0Gqk6UCJCY3WnXutta7dsImvXQ=="],
+    "@sudobility/components": ["@sudobility/components@5.3.43", "https://npm.pkg.github.com/download/@sudobility/components/5.3.43/665e008d9b7a2fe02e351a3e68e38b2962f1dbfc", { "optionalDependencies": { "@rollup/rollup-linux-x64-gnu": "4.52.5", "@rollup/rollup-linux-x64-musl": "4.52.5" }, "peerDependencies": { "@heroicons/react": ">=2.0.0", "@radix-ui/react-alert-dialog": ">=1.0.0", "@radix-ui/react-dialog": ">=1.0.0", "@radix-ui/react-label": ">=2.0.0", "@radix-ui/react-select": ">=2.0.0", "@radix-ui/react-slot": ">=1.0.0", "@radix-ui/react-switch": ">=1.0.0", "@radix-ui/react-tabs": ">=1.0.0", "@sudobility/design": "^1.1.66", "@sudobility/types": "^1.9.76", "class-variance-authority": ">=0.7.0", "clsx": ">=2.0.0", "i18next": ">=23.0.0", "react": ">=18.0.0", "react-dom": ">=18.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0", "tailwind-merge": ">=2.0.0", "web-vitals": ">=3.0.0" } }, "sha512-EGsfs4OS6YjX/Ol98Mvd326LjBX0V1dK+nJDPcb7KEMzfKc65GYV2SPlUPp5X5z/Egg9ej9sZKOCqnrE5fY6ug=="],
 
     "@sudobility/design": ["@sudobility/design@1.1.66", "https://npm.pkg.github.com/download/@sudobility/design/1.1.66/08ff28eba0e05a9e6916a0aae67ac2c36df590f2", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-E+5HxPKHsujJQMYhtdgtzcGkGtaHhuWpMBd05n+dq/FMihrLT8GeMj6G75XpaxqQmbWYOfkjHEUV2GFcECzeNw=="],
 
-    "@sudobility/di": ["@sudobility/di@1.5.78", "https://npm.pkg.github.com/download/@sudobility/di/1.5.78/4a626dec79c7d44d6e6a7936e319444b5d2ed2e5", { "peerDependencies": { "@notifee/react-native": ">=7.0.0", "@react-native-async-storage/async-storage": ">=1.19.0", "@react-native-community/netinfo": ">=9.0.0", "@react-native-firebase/analytics": ">=18.0.0", "@react-native-firebase/app": ">=18.0.0", "@react-native-firebase/messaging": ">=18.0.0", "@sudobility/types": "^1.9.76", "firebase": ">=11.0.0", "react": ">=18.0.0", "react-native": ">=0.70.0" } }, "sha512-paHZxiNvqfmCywjhHRDR1htsV/cBzvyjpPz9Ykb6wt5LUGI4qCY8kUEtuf51OzyeFUJc4HzShnByqZgmwSB5VQ=="],
+    "@sudobility/di": ["@sudobility/di@1.5.79", "https://npm.pkg.github.com/download/@sudobility/di/1.5.79/1035c3304c3dc33d7b5b38b38ba6d6fe8c3dbd60", { "peerDependencies": { "@notifee/react-native": ">=7.0.0", "@react-native-async-storage/async-storage": ">=1.19.0", "@react-native-community/netinfo": ">=9.0.0", "@react-native-firebase/analytics": ">=18.0.0", "@react-native-firebase/app": ">=18.0.0", "@react-native-firebase/messaging": ">=18.0.0", "@sudobility/types": "^1.9.76", "firebase": ">=11.0.0", "react": ">=18.0.0", "react-native": ">=0.70.0" } }, "sha512-2y+YqxNN7lhrbtwKGPKemf/jOJ7RKj8Jm3+9cnSKtiaRf7M2MIEiXQCsF1pF2M6SerzwsUfFbYDVQkfl6qWbzA=="],
 
-    "@sudobility/subscription_lib": ["@sudobility/subscription_lib@0.0.56", "https://npm.pkg.github.com/download/@sudobility/subscription_lib/0.0.56/8496862d470e938a72ad0d8b8cf077801f6587ff", { "peerDependencies": { "@revenuecat/purchases-js": "^1.0.0", "@sudobility/types": "^1.9.76", "@tanstack/react-query": "^5.0.0", "react": "^18.0.0 || ^19.0.0", "react-native-purchases": ">=7.0.0" } }, "sha512-m4bd0jbURZq6/g4Tzs0cOA3kondLeMOpa1wl/I+MYZq3jmZ881vyrTMXMx4hkpIjdm9dgnWjqCSilrYzRep4ew=="],
+    "@sudobility/subscription_lib": ["@sudobility/subscription_lib@0.0.57", "https://npm.pkg.github.com/download/@sudobility/subscription_lib/0.0.57/c48479858b083b3b62e667420bdf96f3d4994df0", { "peerDependencies": { "@revenuecat/purchases-js": "^1.0.0", "@sudobility/types": "^1.9.76", "@tanstack/react-query": "^5.0.0", "react": "^18.0.0 || ^19.0.0", "react-native-purchases": ">=7.0.0" } }, "sha512-hMe+Q3mIDFtR+hngkGCATrE83mP+W3CC9nO6/EoP1MXCDJNO5gBYicUdF2Mtmye4EE0KF6b4c3x7GskeO0DSzw=="],
 
     "@sudobility/types": ["@sudobility/types@1.9.76", "https://npm.pkg.github.com/download/@sudobility/types/1.9.76/71635156f72fd9461107d5f147b3dc1c49f863d0", {}, "sha512-b7maZHR5wM84VlQ+l9R+2guzSOrExog6OUNy1oCe7h0abW13syycmnLQL0g+qql0aQ84qTB4A0mJelhY3Vef4Q=="],
 
@@ -792,7 +792,7 @@
 
     "idb": ["idb@8.0.3", "", {}, "sha512-LtwtVyVYO5BqRvcsKuB2iUMnHwPVByPCXFXOpuU96IZPPoPN6xjOGxZQ74pgSVVLQWtUOYgyeL4GE98BY5D3wg=="],
 
-    "ignore": ["ignore@7.0.13", "", {}, "sha512-2E8Q6rh+1RRSq/YdaGsNfXsEZy9FVqv6BSSrkmZJP7BnaoPnRfKL+YaofPvP+5rzdk144qSm6i4+hvPgUcbV4Q=="],
+    "ignore": ["ignore@7.0.14", "", {}, "sha512-wCBiZ77u1tuWde6G/nfOtLaCTYcFDU5yCzARzK10y+rLhzYoL7a7yEemcopcc2Mzow7gZOIjnV2ym1NYmdiJOQ=="],
 
     "import-fresh": ["import-fresh@3.3.1", "", { "dependencies": { "parent-module": "^1.0.0", "resolve-from": "^4.0.0" } }, "sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ=="],
 
