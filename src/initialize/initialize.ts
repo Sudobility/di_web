@@ -211,15 +211,19 @@ async function initializeRevenueCat(config: RevenueCatConfig): Promise<void> {
 
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
+      // Agnostic seam (initializeSubscription) lives in subscription_lib; the
+      // concrete web adapter lives in subscription_pages (the web subscription
+      // package), keeping platform SDKs out of subscription_lib.
       const subscriptionLib = await import('@sudobility/subscription_lib');
+      const subscriptionPages = await import('@sudobility/subscription_pages');
       const isProduction = config.isProduction ?? true;
       const apiKey = isProduction
         ? config.apiKey
         : config.apiKeySandbox || config.apiKey;
 
-      subscriptionLib.configureRevenueCatAdapter(apiKey);
+      subscriptionPages.configureRevenueCatAdapter(apiKey);
       subscriptionLib.initializeSubscription({
-        adapter: subscriptionLib.createRevenueCatAdapter(),
+        adapter: subscriptionPages.createRevenueCatAdapter(),
         freeTier: config.freeTierPackage ?? {
           packageId: 'free',
           name: 'Free',
@@ -233,7 +237,7 @@ async function initializeRevenueCat(config: RevenueCatConfig): Promise<void> {
       if (isLastAttempt) {
         console.error(
           `Failed to initialize RevenueCat after ${String(maxRetries + 1)} attempt(s). ` +
-            'Make sure @sudobility/subscription_lib is installed.',
+            'Make sure @sudobility/subscription_lib and @sudobility/subscription_pages are installed.',
           error
         );
         config.onError?.(error);

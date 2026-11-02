@@ -49,14 +49,19 @@ vi.mock('../src/sw/register.js', () => ({
   registerServiceWorker: vi.fn(),
 }));
 
-// Mock subscription_lib (dynamically imported)
+// Mock subscription packages (dynamically imported). The agnostic seam
+// (initializeSubscription) lives in subscription_lib; the web RevenueCat adapter
+// now lives in subscription_pages.
 const mockConfigureAdapter = vi.fn();
 const mockInitSubscription = vi.fn();
 const mockCreateAdapter = vi.fn(() => ({ type: 'revenuecat' }));
 
 vi.mock('@sudobility/subscription_lib', () => ({
-  configureRevenueCatAdapter: mockConfigureAdapter,
   initializeSubscription: mockInitSubscription,
+}));
+
+vi.mock('@sudobility/subscription_pages', () => ({
+  configureRevenueCatAdapter: mockConfigureAdapter,
   createRevenueCatAdapter: mockCreateAdapter,
 }));
 
