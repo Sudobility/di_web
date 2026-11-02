@@ -48,7 +48,6 @@ export {
   // Web app initialization
   initializeWebApp,
   type WebAppInitOptions,
-  type RevenueCatConfig,
 } from './initialize/index.js';
 
 // Re-export Firebase from @sudobility/di/web for convenience

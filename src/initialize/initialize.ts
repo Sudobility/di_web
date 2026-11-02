@@ -31,48 +31,6 @@ export {
 // ============================================================================
 
 /**
- * RevenueCat configuration
- */
-export interface RevenueCatConfig {
-  /** RevenueCat API key (production) */
-  apiKey: string;
-
-  /** RevenueCat API key (sandbox) - optional, uses production key if not provided */
-  apiKeySandbox?: string;
-
-  /** Whether we're in production mode (affects which key to use) */
-  isProduction?: boolean;
-
-  /** Free tier package configuration */
-  freeTierPackage?: { packageId: string; name: string };
-
-  /**
-   * Maximum number of retry attempts when RevenueCat initialization fails.
-   * Each retry waits exponentially longer (1 s, 2 s, 4 s, ...).
-   * Set to 0 to disable retries.
-   *
-   * @default 2
-   */
-  maxRetries?: number;
-
-  /**
-   * When `true`, RevenueCat initialization is deferred and not awaited during
-   * `initializeWebApp()`. Instead, it runs in the background so it does not
-   * block app startup. Failures are still logged and retried.
-   *
-   * @default false
-   */
-  lazy?: boolean;
-
-  /**
-   * Optional callback invoked when RevenueCat initialization fails after all
-   * retry attempts. Receives the final error so the consumer can surface it
-   * in their UI or error-reporting pipeline.
-   */
-  onError?: (error: unknown) => void;
-}
-
-/**
  * Configuration options for web app initialization
  */
 export interface WebAppInitOptions {
@@ -81,9 +39,6 @@ export interface WebAppInitOptions {
 
   /** Options controlling which Firebase services to enable (analytics, messaging) */
   firebaseInitOptions?: import('@sudobility/di').FirebaseInitOptions;
-
-  /** RevenueCat configuration - if provided, enables RevenueCat */
-  revenueCatConfig?: RevenueCatConfig;
 
   /** Optional: Initialize i18n (app-specific, pass your initializeI18n function) */
   initializeI18n?: () => void;
@@ -104,9 +59,13 @@ export interface WebAppInitOptions {
  * 3. Firebase Analytics singleton
  * 4. Network service
  * 5. Info service
- * 6. Subscription/RevenueCat (if config provided)
- * 7. i18n (if provided)
- * 8. Performance monitoring (if provided)
+ * 6. i18n (if provided)
+ * 7. Performance monitoring (if provided)
+ *
+ * Subscriptions/RevenueCat are intentionally NOT initialized here. RevenueCat is
+ * optional and platform-specific; each app initializes it at startup via
+ * `initializeSubscription` from @sudobility/subscription_lib with the adapter
+ * from @sudobility/subscription_pages (web).
  *
  * Note: Firebase Auth is NOT initialized here. Apps using Firebase Auth should
  * call initializeFirebaseAuth() from @sudobility/auth_lib separately, or use
@@ -121,7 +80,6 @@ export async function initializeWebApp(
   const {
     firebaseConfig,
     firebaseInitOptions,
-    revenueCatConfig,
     initializeI18n,
     registerServiceWorker,
     initWebVitals,
@@ -144,23 +102,12 @@ export async function initializeWebApp(
   // 5. Initialize info service
   initializeInfoService();
 
-  // 6. Initialize RevenueCat subscription (if config provided)
-  if (revenueCatConfig) {
-    const initRC = () => initializeRevenueCat(revenueCatConfig);
-    if (revenueCatConfig.lazy) {
-      // Fire-and-forget -- don't block app startup
-      void initRC();
-    } else {
-      await initRC();
-    }
-  }
-
-  // 7. Initialize i18n (app-specific)
+  // 6. Initialize i18n (app-specific)
   if (initializeI18n) {
     initializeI18n();
   }
 
-  // 8. Initialize performance monitoring (app-specific)
+  // 7. Initialize performance monitoring (app-specific)
   if (registerServiceWorker === true) {
     const { registerServiceWorker: register } =
       await import('../sw/register.js');
@@ -173,83 +120,4 @@ export async function initializeWebApp(
   }
 
   return analytics;
-}
-
-// ============================================================================
-// RevenueCat Initialization with Retry
-// ============================================================================
-
-/** Default number of retry attempts for RevenueCat initialization. */
-const RC_DEFAULT_MAX_RETRIES = 2;
-
-/** Base delay (ms) between retries -- doubled on each subsequent attempt. */
-const RC_RETRY_BASE_DELAY_MS = 1000;
-
-/**
- * Helper that delays execution for the given number of milliseconds.
- *
- * @param ms - Milliseconds to wait.
- */
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-/**
- * Initialize RevenueCat with retry logic.
- *
- * Dynamically imports `@sudobility/subscription_lib`, configures the
- * RevenueCat adapter with the appropriate API key, and calls
- * `initializeSubscription`. If any step fails it retries up to
- * `config.maxRetries` times (default 2) with exponential back-off.
- * After all retries are exhausted it calls `config.onError` (if provided)
- * and logs the error.
- *
- * @param config - RevenueCat configuration including retry and error options.
- */
-async function initializeRevenueCat(config: RevenueCatConfig): Promise<void> {
-  const maxRetries = config.maxRetries ?? RC_DEFAULT_MAX_RETRIES;
-
-  for (let attempt = 0; attempt <= maxRetries; attempt++) {
-    try {
-      // Agnostic seam (initializeSubscription) lives in subscription_lib; the
-      // concrete web adapter lives in subscription_pages (the web subscription
-      // package), keeping platform SDKs out of subscription_lib.
-      const subscriptionLib = await import('@sudobility/subscription_lib');
-      const subscriptionPages = await import('@sudobility/subscription_pages');
-      const isProduction = config.isProduction ?? true;
-      const apiKey = isProduction
-        ? config.apiKey
-        : config.apiKeySandbox || config.apiKey;
-
-      subscriptionPages.configureRevenueCatAdapter(apiKey);
-      subscriptionLib.initializeSubscription({
-        adapter: subscriptionPages.createRevenueCatAdapter(),
-        freeTier: config.freeTierPackage ?? {
-          packageId: 'free',
-          name: 'Free',
-        },
-      });
-
-      // Success -- exit early
-      return;
-    } catch (error) {
-      const isLastAttempt = attempt === maxRetries;
-      if (isLastAttempt) {
-        console.error(
-          `Failed to initialize RevenueCat after ${String(maxRetries + 1)} attempt(s). ` +
-            'Make sure @sudobility/subscription_lib and @sudobility/subscription_pages are installed.',
-          error
-        );
-        config.onError?.(error);
-      } else {
-        const retryDelay = RC_RETRY_BASE_DELAY_MS * Math.pow(2, attempt);
-        console.warn(
-          `RevenueCat initialization failed (attempt ${String(attempt + 1)}/${String(maxRetries + 1)}). ` +
-            `Retrying in ${String(retryDelay)}ms...`,
-          error
-        );
-        await delay(retryDelay);
-      }
-    }
-  }
 }

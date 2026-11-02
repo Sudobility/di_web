@@ -12,5 +12,4 @@ export {
   // Web app initialization
   initializeWebApp,
   type WebAppInitOptions,
-  type RevenueCatConfig,
 } from './initialize.js';
