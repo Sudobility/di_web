@@ -6,7 +6,7 @@
       "name": "@sudobility/di_web",
       "devDependencies": {
         "@eslint/js": "~10.0.1",
-        "@sudobility/components": "^5.3.55",
+        "@sudobility/components": "^5.3.56",
         "@sudobility/di": "^1.5.84",
         "@sudobility/types": "^1.9.78",
         "@types/node": "~26.6.5",
@@ -25,7 +25,7 @@
         "vitest": "~4.1.12",
       },
       "peerDependencies": {
-        "@sudobility/components": "^5.3.55",
+        "@sudobility/components": "^5.3.56",
         "@sudobility/di": "^1.5.84",
         "@sudobility/types": "^1.9.78",
         "react": "^18.0.0 || ^19.0.0",
@@ -411,7 +411,7 @@
 
     "@standard-schema/utils": ["@standard-schema/utils@0.3.0", "", {}, "sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g=="],
 
-    "@sudobility/components": ["@sudobility/components@5.3.55", "https://npm.pkg.github.com/download/@sudobility/components/5.3.55/72a19a3ae0256a2368db2cb8ed8c0e0a86b0f3df", { "optionalDependencies": { "@rollup/rollup-linux-x64-gnu": "4.52.5", "@rollup/rollup-linux-x64-musl": "4.52.5" }, "peerDependencies": { "@heroicons/react": ">=2.0.0", "@radix-ui/react-alert-dialog": ">=1.0.0", "@radix-ui/react-dialog": ">=1.0.0", "@radix-ui/react-label": ">=2.0.0", "@radix-ui/react-select": ">=2.0.0", "@radix-ui/react-slot": ">=1.0.0", "@radix-ui/react-switch": ">=1.0.0", "@radix-ui/react-tabs": ">=1.0.0", "@revenuecat/purchases-js": "^1.0.0", "@sudobility/design": "^1.1.68", "@sudobility/di": "^1.5.84", "@sudobility/subscription_lib": "^0.0.61", "@sudobility/types": "^1.9.78", "class-variance-authority": ">=0.7.0", "clsx": ">=2.0.0", "firebase": "^12.0.0", "i18next": ">=23.0.0", "react": ">=18.0.0", "react-dom": ">=18.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0", "recharts": "^3.0.0", "tailwind-merge": ">=2.0.0", "web-vitals": ">=3.0.0" } }, "sha512-OMCzGQhTVlLLbC5kljIhJtKklF/0WgjK+kca9l3RKhTF1jPXNMKSWEBlZsAP9PVI3u7RIJJMM+/uJMWm8Ia1yg=="],
+    "@sudobility/components": ["@sudobility/components@5.3.56", "https://npm.pkg.github.com/download/@sudobility/components/5.3.56/f51cf914427fcfc2f7b9ddbfe9faa30a247c61f9", { "optionalDependencies": { "@rollup/rollup-linux-x64-gnu": "4.52.5", "@rollup/rollup-linux-x64-musl": "4.52.5" }, "peerDependencies": { "@heroicons/react": ">=2.0.0", "@radix-ui/react-alert-dialog": ">=1.0.0", "@radix-ui/react-dialog": ">=1.0.0", "@radix-ui/react-label": ">=2.0.0", "@radix-ui/react-select": ">=2.0.0", "@radix-ui/react-slot": ">=1.0.0", "@radix-ui/react-switch": ">=1.0.0", "@radix-ui/react-tabs": ">=1.0.0", "@revenuecat/purchases-js": "^1.0.0", "@sudobility/design": "^1.1.68", "@sudobility/di": "^1.5.84", "@sudobility/subscription_lib": "^0.0.62", "@sudobility/types": "^1.9.78", "class-variance-authority": ">=0.7.0", "clsx": ">=2.0.0", "firebase": "^12.0.0", "i18next": ">=23.0.0", "react": ">=18.0.0", "react-dom": ">=18.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0", "recharts": "^3.0.0", "tailwind-merge": ">=2.0.0", "web-vitals": ">=3.0.0" } }, "sha512-+JIRsR7pmhGS0RJQ5PW4yq/oVtSCJh7H3hEkTyZCfJOSiBwn0jqxQ34yXZF0Fw/DcyFWYwMdVsQtcFaiEQkbMA=="],
 
     "@sudobility/design": ["@sudobility/design@1.1.66", "https://npm.pkg.github.com/download/@sudobility/design/1.1.66/08ff28eba0e05a9e6916a0aae67ac2c36df590f2", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-E+5HxPKHsujJQMYhtdgtzcGkGtaHhuWpMBd05n+dq/FMihrLT8GeMj6G75XpaxqQmbWYOfkjHEUV2GFcECzeNw=="],
 
